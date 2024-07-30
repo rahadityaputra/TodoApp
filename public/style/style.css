@@ -1,0 +1,83 @@
+:root {
+	--primary-color: #28a745;
+	--secondary-color: #8b4513;
+	--text-color: #343a40;
+	--accent-color: #87ceeb;
+}
+
+nav#navbar {
+	background-color: var(--primary-color);
+}
+
+body {
+	background-color: #f5f5f5;
+	color: #343a40;
+	font-family: Arial, sans-serif;
+}
+
+#sort-list {
+	width: 200px;
+}
+
+.task-list {
+	margin: 2rem;
+}
+
+.task-item {
+	background-color: #f9f9f9;
+	border: 1px solid #ced4da;
+	border-radius: 8px;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-title {
+	font-size: 1.25em;
+	font-weight: bold;
+	font-family: "Lato", sans-serif;
+}
+
+.task-details {
+	margin: 0.5rem 0;
+}
+
+.task-details p {
+	margin: 0;
+}
+
+.task-action button {
+	margin-left: 5px;
+}
+
+main {
+	position: relative;
+}
+
+main .btn-add {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+
+footer {
+	text-align: center;
+	padding: 20px 0;
+	font-size: 0.9em;
+	border-top: 1px solid #ccc;
+	color: #333;
+}
+
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.footer-content a {
+	color: #007bff;
+	text-decoration: none;
+	margin: 0 10px;
+}

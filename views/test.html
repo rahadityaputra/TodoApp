@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting List</title>
+</head>
+
+<body>
+  <form id="sortForm">
+    <label for="sortOptions">Sort by:</label>
+    <select id="sortOptions">
+      <option value="nameAsc">Name (A-Z)</option>
+      <option value="nameDesc">Name (Z-A)</option>
+      <option value="dateAsc">Date (Oldest First)</option>
+      <option value="dateDesc">Date (Newest First)</option>
+    </select>
+  </form>
+  <ul id="taskList">
+    <!-- List items will go here -->
+  </ul>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sortForm = document.getElementById('sortForm');
+        const sortOptions = document.getElementById('sortOptions');
+        const taskList = document.getElementById('taskList');
+
+        const tasks = [
+          { name: 'Task 1', date: '2023-07-25' },
+          { name: 'Task 2', date: '2023-07-24' },
+          { name: 'Task 3', date: '2023-07-23' }
+        ];
+
+        function renderTasks(sortedTasks) {
+          taskList.innerHTML = '';
+          sortedTasks.forEach(task => {
+            const li = document.createElement('li');
+            li.textContent = `${task.name} - ${task.date}`;
+            taskList.appendChild(li);
+          });
+        }
+
+        function sortTasks(criteria) {
+          let sortedTasks;
+          switch (criteria) {
+            case 'nameAsc':
+              sortedTasks = tasks.slice().sort((a, b) => a.name.localeCompare(b.name));
+              break;
+            case 'nameDesc':
+              sortedTasks = tasks.slice().sort((a, b) => b.name.localeCompare(a.name));
+              break;
+            case 'dateAsc':
+              sortedTasks = tasks.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+              break;
+            case 'dateDesc':
+              sortedTasks = tasks.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+              break;
+          }
+          renderTasks(sortedTasks);
+        }
+
+        sortOptions.addEventListener('change', () => {
+          sortTasks(sortOptions.value);
+        });
+
+        // Initial render
+        renderTasks(tasks);
+      });
+
+  </script>
+</body>
+
+</html>
